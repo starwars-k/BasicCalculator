@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-class MyCalc extends WindowAdapter implements ActionListenr{
+class MyCalc extends WindowAdapter implements ActionListner{
     Frame f;
     Label l1;
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0;
