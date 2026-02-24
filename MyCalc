@@ -3,6 +3,7 @@ import java.awt.event.*;
 class MyCalc{
    Frame f;
    Label l;
+   MenuBar menuBar;
    Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0;
    Button bAdd,bSub,bMult,bDiv,bCalc,bAC,bC,bMod,bDeci,bSign;
    int result = 0;
@@ -15,11 +16,23 @@ class MyCalc{
       l.setBackground(Color.GRAY);
       l.setBounds(35,50,320,100);
       f.add(l);
-            
+      menuBar = new MenuBar();
+      f.setMenuBar(menuBar);
+      Menu menu = new Menu("Menu");
+      MenuItem exitItem = new MenuItem("x");
+      exitItem.addActionListener(new ActionListener(){
+         public void actionPerformed(ActionEvent e){
+            System.exit(0);
+         }
+      });
+      menuBar.add(menu);
+      menu.addSeparator();
+      menu.add(exitItem);
+                  
       b0 = new Button("0");
       b0.setBounds(120,510,70,70);
       f.add(b0);
-
+   
       b1 = new Button("1");
       b1.setBounds(35,430,70,70);
       f.add(b1);
@@ -125,6 +138,11 @@ class MyCalc{
          );
    }
    
+   /**
+   when any button clicked, it will work
+   After calculation, if you click number, it will start over.
+   To keep continuing, you will click any operation button.
+   */
    public void addActionListener(Button button){
       button.addActionListener(
          new ActionListener(){
@@ -142,7 +160,7 @@ class MyCalc{
                      st = l.getText();
                   }
                   s = st + "1";
-                     l.setText(s);
+                  l.setText(s);
                }
                if(e.getSource() == b2){
                   if(n2!=0 && calc==0){
@@ -156,8 +174,8 @@ class MyCalc{
                      st = l.getText();
                   }
                   s = st + "2";
-                     l.setText(s);
-
+                  l.setText(s);
+               
                }
                if(e.getSource() == b3){
                   if(n2!=0 && calc==0){
@@ -171,8 +189,8 @@ class MyCalc{
                      st = l.getText();
                   }
                   s = st + "3";
-                     l.setText(s);
-
+                  l.setText(s);
+               
                }
                if(e.getSource() == b4){
                   if(n2!=0 && calc==0){
@@ -186,8 +204,8 @@ class MyCalc{
                      st = l.getText();
                   }
                   s = st + "4";
-                     l.setText(s);
-
+                  l.setText(s);
+               
                }
                if(e.getSource() == b5){
                   if(n2!=0 && calc==0){
@@ -201,8 +219,8 @@ class MyCalc{
                      st = l.getText();
                   }
                   s = st + "5";
-                     l.setText(s);
-
+                  l.setText(s);
+               
                }
                if(e.getSource() == b6){
                   if(n2!=0 && calc==0){
@@ -216,8 +234,8 @@ class MyCalc{
                      st = l.getText();
                   }
                   s = st + "6";
-                     l.setText(s);
-
+                  l.setText(s);
+               
                }
                if(e.getSource() == b7){
                   if(n2!=0 && calc==0){
@@ -231,8 +249,8 @@ class MyCalc{
                      st = l.getText();
                   }
                   s = st + "7";
-                     l.setText(s);
-
+                  l.setText(s);
+               
                }
                if(e.getSource() == b8){
                   if(n2!=0 && calc==0){
@@ -246,8 +264,8 @@ class MyCalc{
                      st = l.getText();
                   }
                   s = st + "8";
-                     l.setText(s);
-
+                  l.setText(s);
+               
                }
                if(e.getSource() == b9){
                   if(n2!=0 && calc==0){
@@ -261,8 +279,8 @@ class MyCalc{
                      st = l.getText();
                   }
                   s = st + "9";
-                     l.setText(s);
-
+                  l.setText(s);
+               
                }
                if(e.getSource() == b0){
                   if(n2!=0 && calc==0){
@@ -276,8 +294,8 @@ class MyCalc{
                      st = l.getText();
                   }
                   s = st + "0";
-                     l.setText(s);
-
+                  l.setText(s);
+               
                }
                if(e.getSource() == bAdd){
                   try{
@@ -403,15 +421,13 @@ class MyCalc{
                      x = 0;
                      l.setText(s);
                   }
-
+               
                }
             }
          }
-      );
+         );
    }
-      
-   
    public static void main(String[] args){
       new MyCalc();
    }
-}
+}      
