@@ -1,10 +1,417 @@
 import java.awt.*;
 import java.awt.event.*;
-class MyCalc extends WindowAdapter implements ActionListner{
-    Frame f;
-    Label l1;
-    Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0;
-    Button badd, bsub, bmult, bdiv,bmod,bcalc,bclr,bpts,bneg,bback;
-    double xd;
-    double num1, num2,check;
+class MyCalc{
+   Frame f;
+   Label l;
+   Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0;
+   Button bAdd,bSub,bMult,bDiv,bCalc,bAC,bC,bMod,bDeci,bSign;
+   int result = 0;
+   double n1,n2,calc,x;
+   
+   MyCalc(){
+      n2 = 0;
+      f = new Frame("Basic Calculator");
+      l = new Label();
+      l.setBackground(Color.GRAY);
+      l.setBounds(35,50,320,100);
+      f.add(l);
+            
+      b0 = new Button("0");
+      b0.setBounds(120,510,70,70);
+      f.add(b0);
+
+      b1 = new Button("1");
+      b1.setBounds(35,430,70,70);
+      f.add(b1);
+      
+      b2 = new Button("2");
+      b2.setBounds(120,430,70,70);
+      f.add(b2);
+      
+      b3 = new Button("3");
+      b3.setBounds(205,430,70,70);
+      f.add(b3);
+      
+      b4 = new Button("4");
+      b4.setBounds(35,350,70,70);
+      f.add(b4);
+      
+      b5 = new Button("5");
+      b5.setBounds(120,350,70,70);
+      f.add(b5);
+      
+      b6 = new Button("6");
+      b6.setBounds(205,350,70,70);
+      f.add(b6);
+      
+      b7 = new Button("7");
+      b7.setBounds(35,270,70,70);
+      f.add(b7);
+      
+      b8 = new Button("8");
+      b8.setBounds(120,270,70,70);
+      f.add(b8);
+      
+      b9 = new Button("9");
+      b9.setBounds(205,270,70,70);
+      f.add(b9);
+      
+      bC = new Button("C");
+      bC.setBounds(35,190,70,70);
+      f.add(bC);
+      
+      bAC = new Button("AC");
+      bAC.setBounds(120,190,70,70);
+      f.add(bAC);
+      
+      bMod = new Button("mod");
+      bMod.setBounds(205,190,70,70);
+      f.add(bMod);
+      
+      bAdd = new Button("+");
+      bAdd.setBounds(285,430,70,70);
+      f.add(bAdd);
+      bSub = new Button("-");
+      bSub.setBounds(285,350,70,70);
+      f.add(bSub);
+      bMult = new Button("x");
+      bMult.setBounds(285,270,70,70);
+      f.add(bMult);
+      bDiv = new Button("/");
+      bDiv.setBounds(285,190,70,70);
+      f.add(bDiv);
+      bCalc = new Button("=");
+      bCalc.setBounds(285,510,70,70);
+      f.add(bCalc);
+      bDeci = new Button(".");
+      bDeci.setBounds(205,510,70,70);
+      f.add(bDeci);
+      bSign = new Button("+/-");
+      bSign.setBounds(35,510,70,70);
+      f.add(bSign);
+      
+      addActionListener(b1);
+      addActionListener(b2);
+      addActionListener(b3);
+      addActionListener(b4);
+      addActionListener(b5);
+      addActionListener(b6);
+      addActionListener(b7);
+      addActionListener(b8);
+      addActionListener(b9);
+      addActionListener(b0);
+      addActionListener(bAC);
+      addActionListener(bC);
+      addActionListener(bCalc);
+      addActionListener(bDiv);
+      addActionListener(bMult);
+      addActionListener(bAdd);
+      addActionListener(bSub);
+      addActionListener(bMod);
+      addActionListener(bDeci);
+      addActionListener(bSign);
+      
+      f.setSize(400,620);
+      f.setLayout(null);
+      f.setVisible(true);
+      
+      f.addWindowListener(
+         new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+               System.exit(0);
+            }
+         }
+         );
+   }
+   
+   public void addActionListener(Button button){
+      button.addActionListener(
+         new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+               String st, s;
+               if(e.getSource() == b1){
+                  if(n2!=0 && calc==0){
+                     st = "";
+                     n1 = 1;
+                     n2 = 0;
+                     x = 0;
+                     calc = 0;
+                  }
+                  else{
+                     st = l.getText();
+                  }
+                  s = st + "1";
+                     l.setText(s);
+               }
+               if(e.getSource() == b2){
+                  if(n2!=0 && calc==0){
+                     st = "";
+                     n1 = 2;
+                     n2 = 0;
+                     x = 0;
+                     calc = 0;
+                  }
+                  else{
+                     st = l.getText();
+                  }
+                  s = st + "2";
+                     l.setText(s);
+
+               }
+               if(e.getSource() == b3){
+                  if(n2!=0 && calc==0){
+                     st = "";
+                     n1 = 3;
+                     n2 = 0;
+                     x = 0;
+                     calc = 0;
+                  }
+                  else{
+                     st = l.getText();
+                  }
+                  s = st + "3";
+                     l.setText(s);
+
+               }
+               if(e.getSource() == b4){
+                  if(n2!=0 && calc==0){
+                     st = "";
+                     n1 = 4;
+                     n2 = 0;
+                     x = 0;
+                     calc = 0;
+                  }
+                  else{
+                     st = l.getText();
+                  }
+                  s = st + "4";
+                     l.setText(s);
+
+               }
+               if(e.getSource() == b5){
+                  if(n2!=0 && calc==0){
+                     st = "";
+                     n1 = 5;
+                     n2 = 0;
+                     x = 0;
+                     calc = 0;
+                  }
+                  else{
+                     st = l.getText();
+                  }
+                  s = st + "5";
+                     l.setText(s);
+
+               }
+               if(e.getSource() == b6){
+                  if(n2!=0 && calc==0){
+                     st = "";
+                     n1 = 6;
+                     n2 = 0;
+                     x = 0;
+                     calc = 0;
+                  }
+                  else{
+                     st = l.getText();
+                  }
+                  s = st + "6";
+                     l.setText(s);
+
+               }
+               if(e.getSource() == b7){
+                  if(n2!=0 && calc==0){
+                     st = "";
+                     n1 = 7;
+                     n2 = 0;
+                     x = 0;
+                     calc = 0;
+                  }
+                  else{
+                     st = l.getText();
+                  }
+                  s = st + "7";
+                     l.setText(s);
+
+               }
+               if(e.getSource() == b8){
+                  if(n2!=0 && calc==0){
+                     st = "";
+                     n1 = 8;
+                     n2 = 0;
+                     x = 0;
+                     calc = 0;
+                  }
+                  else{
+                     st = l.getText();
+                  }
+                  s = st + "8";
+                     l.setText(s);
+
+               }
+               if(e.getSource() == b9){
+                  if(n2!=0 && calc==0){
+                     st = "";
+                     n1 = 9;
+                     n2 = 0;
+                     x = 0;
+                     calc = 0;
+                  }
+                  else{
+                     st = l.getText();
+                  }
+                  s = st + "9";
+                     l.setText(s);
+
+               }
+               if(e.getSource() == b0){
+                  if(n2!=0 && calc==0){
+                     st = "";
+                     n1 = 0;
+                     n2 = 0;
+                     x = 0;
+                     calc = 0;
+                  }
+                  else{
+                     st = l.getText();
+                  }
+                  s = st + "0";
+                     l.setText(s);
+
+               }
+               if(e.getSource() == bAdd){
+                  try{
+                     n1 = Double.parseDouble(l.getText());}
+                  catch(StringIndexOutOfBoundsException f){
+                     l.setText("Invalid Format");
+                     return;
+                  }
+                  s = "";
+                  l.setText(s);
+                  calc = 1;
+               }
+               if(e.getSource() == bSub){
+                  try{
+                     n1 = Double.parseDouble(l.getText());}
+                  catch(StringIndexOutOfBoundsException f){
+                     l.setText("Invalid Format");
+                     return;
+                  }
+                  s = "";
+                  l.setText(s);
+                  calc = 2;
+               }
+               if(e.getSource() == bMult){
+                  try{
+                     n1 = Double.parseDouble(l.getText());}
+                  catch(StringIndexOutOfBoundsException f){
+                     l.setText("Invalid Format");
+                     return;
+                  }
+                  s = "";
+                  l.setText(s);
+                  calc = 3;
+               }
+               if(e.getSource() == bDiv){
+                  try{
+                     n1 = Double.parseDouble(l.getText());}
+                  catch(StringIndexOutOfBoundsException f){
+                     l.setText("Invalid Format");
+                     return;
+                  }
+                  s = "";
+                  l.setText(s);
+                  calc = 4;
+               }
+               if(e.getSource() == bCalc){
+                  try{
+                     n2 = Double.parseDouble(l.getText());}
+                  catch(StringIndexOutOfBoundsException f){
+                     l.setText("ENTER NUMBER FIRST");
+                     return;
+                  }
+                  if(calc == 1){
+                     x = n1 + n2;
+                  }
+                  if(calc == 2){
+                     x = n1 - n2;
+                  }
+                  if(calc == 3){
+                     x = n1 * n2;
+                  }
+                  if(calc == 4){
+                     x = n1 / n2;
+                  }
+                  if(calc == 5){
+                     x = n1 % n2;
+                  }
+                  if(calc == 0){
+                     x = n1;
+                  }
+                  l.setText(String.valueOf(x));
+                  n1 = x;
+                  calc = 0;
+               }
+               if(e.getSource() == bAC){
+                  n1 = 0;
+                  n2 = 0;
+                  x = 0;
+                  calc = 0;
+                  s = "";
+                  l.setText(s);
+               }
+               if(e.getSource() == bC){
+                  try{
+                     s = l.getText();
+                     s = s.substring(0,s.length()-1);
+                  }
+                  catch(StringIndexOutOfBoundsException f){
+                     l.setText("ENTER NUMBER FIRST");
+                     return;
+                  }
+                  l.setText(s);
+               }
+               if(e.getSource() == bMod){
+                  try{
+                     n1 = Double.parseDouble(l.getText());}
+                  catch(StringIndexOutOfBoundsException f){
+                     l.setText("Invalid Format");
+                     return;
+                  }
+                  s = "";
+                  l.setText(s);
+                  calc = 5;
+               }
+               if(e.getSource() == bDeci){
+                  st = l.getText();
+                  if(st.length()>0&&st.indexOf(".")<0){
+                     s = st + ".";
+                     l.setText(s);
+                  }
+               }
+               if(e.getSource() == bSign){
+                  st = l.getText();
+                  if(st.length()==0){
+                     s = st + "-";
+                     l.setText(s);
+                  }
+                  else if(n2!=0 && calc==0){
+                     s = "-";
+                     n1 = 0;
+                     n2 = 0;
+                     calc = 0;
+                     x = 0;
+                     l.setText(s);
+                  }
+
+               }
+            }
+         }
+      );
+   }
+      
+   
+   public static void main(String[] args){
+      new MyCalc();
+   }
 }
